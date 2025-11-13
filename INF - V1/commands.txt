@@ -1,0 +1,19 @@
+# Change into the project directory (PowerShell syntax)
+Set-Location -Path "D:\资料\JHU\课程\Biomedical Data Design I\SpineDetect\Test\INF"
+
+# Create or update the Python environment named "test"
+conda create -y -n test python=3.10
+conda activate test
+
+# Install Python dependencies into the "test" environment
+pip install -r requirements.txt
+
+# Train the neural field model using settings from config.py
+python train_and_inference.py train
+
+# Run inference on a trained checkpoint (edit the paths to your .tif files/checkpoint)
+python train_and_inference.py inference `
+  --input "D:\资料\JHU\课程\Biomedical Data Design I\SpineDetect\Test\Data\test\F08_1_20240817_roi3_Red.tif" `
+  --output "D:\资料\JHU\课程\Biomedical Data Design I\SpineDetect\Test\INF\outputs\F08_1_20240817_roi3_Red.tif" `
+  --checkpoint "D:\资料\JHU\课程\Biomedical Data Design I\SpineDetect\Test\INF\checkpoints\model_final.pth" `
+  --device cuda
