@@ -88,20 +88,6 @@ def compute_new_voxel(seg, seg_res, vx_coord, vx_res, vessel_uid):
     else:
         return 0
 
-    # unique_ids = np.unique(block)
-
-    # val = 0
-    # for uid in unique_ids:
-    #     if uid != vessel_uid: continue
-
-    #     neuron_image = np.zeros(block.shape[:-1])
-    #     mask = np.any(block == uid, axis=-1)
-    #     neuron_image[mask] = 1
-
-    #     val += resample(neuron_image, (0, 0, 0), seg_res, vx_res)
-
-    # if val > 
-
 
 def compute_supervoxel(seg, seg_res, seg_origin, svx_coord, svx_size, vx_res, ct_df):
     a = seg_origin + Vec(
@@ -210,7 +196,8 @@ if __name__ == "__main__":
     origin = origin.astype(int)             # nm
 
     svx_coord = (args.svx_x, args.svx_y, args.svx_z)
-    svx = memoize_supervoxel(args.path, seg_cv, seg_res, origin, svx_coord, (lateral_nm, lateral_nm, depth_nm), (100, 100, 100), 864691134966128927)
+    # svx = memoize_supervoxel(args.path, seg_cv, seg_res, origin, svx_coord, (lateral_nm, lateral_nm, depth_nm), (100, 100, 100), 864691134966128927)
+    svx = memoize_supervoxel(args.path, seg_cv, seg_res, origin, svx_coord, (lateral_nm, lateral_nm, depth_nm), (100, 100, 100), 864691135801170018)
 
     if not args.silent:
         plt.imshow(svx[:,:,0], cmap='gray')

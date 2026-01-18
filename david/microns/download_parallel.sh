@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OUT_DIR="./vessels"
-NX=2
-NY=2
+OUT_DIR="./sample_neuron"
+NX=8
+NY=8
 NZ=32
 JOBS=24
 
