@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OUT_DIR="./svx"
-NX=1
-NY=1
-NZ=4
-JOBS=16
+OUT_DIR="./vessels"
+NX=2
+NY=2
+NZ=32
+JOBS=24
 
 parallel -j "$JOBS" --halt soon,fail=1 --joblog parallel.log \
-  python memoize_svx.py "$OUT_DIR" {1} {2} {3} -s \
+  python memoize_vessels.py "$OUT_DIR" {1} {2} {3} -s \
   ::: $(seq 0 "$NX") ::: $(seq 0 "$NY") ::: $(seq 0 "$NZ")

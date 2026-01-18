@@ -74,27 +74,33 @@ def range_helper(p, dx_in, dx_out):
     return idx
 
 
-def compute_new_voxel(seg, seg_res, vx_coord, vx_res, ct_df):
+def compute_new_voxel(seg, seg_res, vx_coord, vx_res, vessel_uid):
     
     idx_x = range_helper(vx_coord[0], seg_res[0], vx_res[0])
     idx_y = range_helper(vx_coord[1], seg_res[1], vx_res[1])
     idx_z = range_helper(vx_coord[2], seg_res[2], vx_res[2])
 
     block = seg[np.ix_(idx_x, idx_y, idx_z)]
+    mask = block == vessel_uid
 
-    unique_ids = np.unique(block)
+    if np.sum(mask) > (mask.size / 2):
+        return 1
+    else:
+        return 0
 
-    val = 0
-    for uid in unique_ids:
-        if uid not in ct_df['pt_root_id'].values: continue
+    # unique_ids = np.unique(block)
 
-        neuron_image = np.zeros(block.shape[:-1])
-        mask = np.any(block == uid, axis=-1)
-        neuron_image[mask] = 1
+    # val = 0
+    # for uid in unique_ids:
+    #     if uid != vessel_uid: continue
 
-        val += resample(neuron_image, (0, 0, 0), seg_res, vx_res)
+    #     neuron_image = np.zeros(block.shape[:-1])
+    #     mask = np.any(block == uid, axis=-1)
+    #     neuron_image[mask] = 1
 
-    return val
+    #     val += resample(neuron_image, (0, 0, 0), seg_res, vx_res)
+
+    # if val > 
 
 
 def compute_supervoxel(seg, seg_res, seg_origin, svx_coord, svx_size, vx_res, ct_df):
@@ -172,7 +178,7 @@ if __name__ == "__main__":
     ann_res = Vec(*meta["voxel_resolution"])
     seg_res = seg_cv.resolution
 
-    ct_all_df = get_all_cts(client)
+    # ct_all_df = get_all_cts(client)
 
     ###############################
     # NOTE: MUST BE EDGE ALIGNED!!!
@@ -204,7 +210,7 @@ if __name__ == "__main__":
     origin = origin.astype(int)             # nm
 
     svx_coord = (args.svx_x, args.svx_y, args.svx_z)
-    svx = memoize_supervoxel(args.path, seg_cv, seg_res, origin, svx_coord, (lateral_nm, lateral_nm, depth_nm), (100, 100, 100), ct_all_df)
+    svx = memoize_supervoxel(args.path, seg_cv, seg_res, origin, svx_coord, (lateral_nm, lateral_nm, depth_nm), (100, 100, 100), 864691134966128927)
 
     if not args.silent:
         plt.imshow(svx[:,:,0], cmap='gray')

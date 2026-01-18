@@ -1,6 +1,7 @@
 *.npy
 *.h5
 *.log
+*.tiff
 
 
 *.pyc
