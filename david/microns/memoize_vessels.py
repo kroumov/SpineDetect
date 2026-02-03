@@ -192,7 +192,8 @@ if __name__ == "__main__":
     depth_nm = depth_vx * seg_res[2]
     lateral_nm = lateral_vx * seg_res[0]
 
-    origin = Vec(681280, 531968, 809000)    # nm
+    # origin = Vec(681280, 531968, 809000)    # nm
+    origin = Vec(681280, 531968, 595440)
     origin = origin.astype(int)             # nm
 
     svx_coord = (args.svx_x, args.svx_y, args.svx_z)

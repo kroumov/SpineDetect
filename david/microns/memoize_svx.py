@@ -5,7 +5,6 @@ import argparse
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 from caveclient import CAVEclient
@@ -129,7 +128,7 @@ def compute_supervoxel(seg, seg_res, seg_origin, svx_coord, svx_size, vx_res, ct
 # TODO: Save other metadata (coordinate systems, sources, etc) to a JSON
 # TODO: Compare existing JSON with current JSON before modifying store
 def memoize_supervoxel(folder, seg, seg_res, seg_origin, svx_coord, svx_size, vx_res, ct_df, flush=False):
-    filename = f'svx_{svx_coord[0]}_{svx_coord[1]}_{svx_coord[2]}.npy'
+    filename = f'svx_{svx_coord[0]}_{svx_coord[1]}_{svx_coord[2]}.npz'
     
     folder = Path(folder)
     if folder.exists() == False:
@@ -143,7 +142,7 @@ def memoize_supervoxel(folder, seg, seg_res, seg_origin, svx_coord, svx_size, vx
             return np.load(str(filepath.absolute()))
         
     svx = compute_supervoxel(seg, seg_res, seg_origin, svx_coord, svx_size, vx_res, ct_df)
-    np.save(filepath, svx)
+    np.savez(filepath, svx)
 
     return svx
 
@@ -207,5 +206,6 @@ if __name__ == "__main__":
     svx = memoize_supervoxel(args.path, seg_cv, seg_res, origin, svx_coord, (lateral_nm, lateral_nm, depth_nm), (100, 100, 100), ct_all_df)
 
     if not args.silent:
+        import matplotlib.pyplot as plt
         plt.imshow(svx[:,:,0], cmap='gray')
         plt.show()
