@@ -19,7 +19,7 @@ $ docker run --rm \
 ```
 
 ```powershell
-docker run --rm `
+PS> docker run --rm `
     -v ./output:/output `
     -v $HOME/.cloudvolume:/root/.cloudvolume `
     downsample `
