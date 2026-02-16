@@ -1,0 +1,27 @@
+{
+    "name": "",
+    "output": "./output/svx",
+    "dataset": "minnie65_public",
+    "materialization": 1300,
+
+    "out_voxel_res": {
+        "x": 100,
+        "y": 100,
+        "z": 100
+    },
+    "out_svx_res": {
+        "x": 10000,
+        "y": 10000,
+        "z": 1600
+    },
+    "microns_origin": {
+        "x": 681280,
+        "y": 531968, 
+        "z": 809000
+    },
+    "whitelist": [
+        864691134966128927
+    ],
+
+    "method": "occupancy"
+}

@@ -15,40 +15,35 @@ set -euo pipefail
 # ----------------------------
 # User-configurable paths
 # ----------------------------
-PROJECT_DIR="/home/$USER/project"               # contains tasks.tsv, params.json, etc.
-TASKS_TSV="${PROJECT_DIR}/tasks.tsv"
+PROJECT_DIR="/scratch4/en580/dkopala1/vessels/"               # contains volume.json, jobs.csv
 SIF="/home/$USER/containers/microns_downsample.sif"
 
 # Secrets (kept private with 700/600 perms)
 CAVE_SECRETS_DIR="/home/$USER/.cloudvolume"    # expects secrets under ~/.cloudvolume/secrets/
-GCP_SECRETS_DIR="/home/$USER/.secrets"
-GCP_KEY="${GCP_SECRETS_DIR}/gcp-uploader-sa.json"
-
-# Where outputs should land on the shared filesystem (optional; depends on your python)
-OUT_SHARED="${PROJECT_DIR}/out"
 
 # ----------------------------
 # Load container runtime
 # ----------------------------
 module load singularity
 
-mkdir -p "${PROJECT_DIR}/logs" "${OUT_SHARED}"
+mkdir -p "${PROJECT_DIR}/logs"
 
 # ----------------------------
 # Validate inputs early
 # ----------------------------
-if [[ ! -f "${TASKS_TSV}" ]]; then
-  echo "ERROR: tasks file not found: ${TASKS_TSV}" >&2
-  exit 2
-fi
 if [[ ! -f "${SIF}" ]]; then
   echo "ERROR: container SIF not found: ${SIF}" >&2
   exit 2
 fi
-if [[ ! -f "${GCP_KEY}" ]]; then
-  echo "ERROR: GCP key not found: ${GCP_KEY}" >&2
+if [[ ! -f "${PROJECT_DIR}/volume.json" ]]; then
+  echo "ERROR: volume.json: ${PROJECT_DIR}/volume.json" >&2
   exit 2
 fi
+if [[ ! -f "${PROJECT_DIR}/jobs.csv" ]]; then
+  echo "ERROR: jobs.csv not found: ${PROJECT_DIR}/jobs.csv" >&2
+  exit 2
+fi
+
 
 # ----------------------------
 # Select task line
@@ -66,16 +61,11 @@ fi
 
 # Parse: ix iy iz params_path
 # Using read to split on whitespace/tabs
-read -r ix iy iz params_path <<< "${line}"
+read -r ix,iy,iz <<< "${line}"
 
-if [[ -z "${ix}" || -z "${iy}" || -z "${iz}" || -z "${params_path}" ]]; then
+if [[ -z "${ix}" || -z "${iy}" || -z "${iz}" ]]; then
   echo "ERROR: Malformed line ${TASK_ID}: '${line}'" >&2
   exit 4
-fi
-
-if [[ ! -f "${params_path}" ]]; then
-  echo "ERROR: params file not found: ${params_path}" >&2
-  exit 5
 fi
 
 echo "============================================================"
@@ -83,25 +73,7 @@ echo "Job:         ${SLURM_JOB_ID}"
 echo "Array task:  ${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}"
 echo "Node:        $(hostname)"
 echo "Tile:        ix=${ix}, iy=${iy}, iz=${iz}"
-echo "Params:      ${params_path}"
 echo "============================================================"
-
-# ----------------------------
-# Fast scratch (node-local)
-# ----------------------------
-WORKDIR="${TMPDIR:-/tmp}/microns_${SLURM_JOB_ID}_${SLURM_ARRAY_TASK_ID}"
-mkdir -p "${WORKDIR}"
-
-# ----------------------------
-# Auth: ADC for Google Cloud
-# ----------------------------
-export GOOGLE_APPLICATION_CREDENTIALS="${GCP_KEY}"
-
-# Optional: avoid accidental thread oversubscription by native libs
-export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
-export OPENBLAS_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
-export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
-export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
 
 # ----------------------------
 # Run container
@@ -117,15 +89,9 @@ export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
 # ----------------------------
 singularity exec \
   --cleanenv \
-  --env "GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}" \
   --bind "${PROJECT_DIR}:/work" \
-  --bind "${CAVE_SECRETS_DIR}:/home/${USER}/.cloudvolume" \
-  --bind "${GCP_SECRETS_DIR}:/home/${USER}/.secrets:ro" \
+  --bind "${CAVE_SECRETS_DIR}:/root/.cloudvolume" \
   "${SIF}" \
-  python /app/app.py \
-    --params "${params_path}" \
-    --ix "${ix}" --iy "${iy}" --iz "${iz}" \
-    --out-dir "/work/out" \
-    --silent
+  python app.py -s /work ${ix} ${iy} ${iz}
 
-echo "Done. Local scratch: ${WORKDIR}"
+echo "Done."
