@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=4G
 #SBATCH --time=04:00:00
-#SBATCH --array=1-1%25
+#SBATCH --array=1-10%10
 #SBATCH --output=logs/%x_%A_%a.out
 #SBATCH --error=logs/%x_%A_%a.err
 
@@ -16,7 +16,7 @@ set -euo pipefail
 # User-configurable paths
 # ----------------------------
 PROJECT_DIR="/scratch4/en580/dkopala1/vessels/"               # contains volume.json, jobs.csv
-SIF="/home/$USER/containers/microns_downsample.sif"
+SIF="/home/$USER/singularity/microns-downsample_latest.sif"
 
 # Secrets (kept private with 700/600 perms)
 CAVE_SECRETS_DIR="/home/$USER/.cloudvolume"    # expects secrets under ~/.cloudvolume/secrets/
@@ -53,7 +53,7 @@ fi
 # ----------------------------
 TASK_ID="${SLURM_ARRAY_TASK_ID}"
 
-line="$(sed -n "${TASK_ID}p" "${TASKS_TSV}" || true)"
+line="$(sed -n "${TASK_ID}p" "${PROJECT_DIR}/jobs.csv" || true)"
 if [[ -z "${line}" ]]; then
   echo "ERROR: No line ${TASK_ID} in ${TASKS_TSV}" >&2
   exit 3
@@ -61,7 +61,7 @@ fi
 
 # Parse: ix iy iz params_path
 # Using read to split on whitespace/tabs
-read -r ix,iy,iz <<< "${line}"
+IFS=, read -r ix iy iz <<< "$line"
 
 if [[ -z "${ix}" || -z "${iy}" || -z "${iz}" ]]; then
   echo "ERROR: Malformed line ${TASK_ID}: '${line}'" >&2
@@ -92,6 +92,6 @@ singularity exec \
   --bind "${PROJECT_DIR}:/work" \
   --bind "${CAVE_SECRETS_DIR}:/root/.cloudvolume" \
   "${SIF}" \
-  python app.py -s /work ${ix} ${iy} ${iz}
+  python /usr/local/app/downsample.py -s /work ${ix} ${iy} ${iz}
 
 echo "Done."
