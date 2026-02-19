@@ -4,8 +4,8 @@ In the current directory, run the `docker build` command
 
 ```bash
 $ cd <project_root>/david/microns
-$ docker build -t downsample -f package/Dockerfile .
-$ docker run downsample
+$ docker build -t davidkopala/microns-downsample -f package/Dockerfile .
+$ docker run davidkopala/microns-downsample
 ```
 
 ## Executing
@@ -14,7 +14,7 @@ $ mkdir output
 $ docker run --rm \
     -v ./output:/output \
     -v ~/.cloudvolume:/root/.cloudvolume \
-    downsample \
+    davidkopala/microns-downsample \
     python app.py -s /output 0 0 0
 ```
 
@@ -22,6 +22,6 @@ $ docker run --rm \
 PS> docker run --rm `
     -v ./output:/output `
     -v $HOME/.cloudvolume:/root/.cloudvolume `
-    downsample `
+    davidkopala/microns-downsample `
     python app.py -s /output 0 0 0
 ```
