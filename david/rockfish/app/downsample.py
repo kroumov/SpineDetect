@@ -258,7 +258,7 @@ if __name__ == "__main__":
             lock = FileLock(project.joinpath(filename + '.lock'))
             with lock:
                 if dosage_path.exists() != True:
-                    dosage = generate_dosage(client, **args)
+                    dosage = generate_dosage(client, **config['injection'])
                     with open(dosage_path, 'w') as file:
                         json.dump(dosage, file)
 

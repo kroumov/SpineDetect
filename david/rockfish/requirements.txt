@@ -6,3 +6,4 @@ caveclient
 cloud-volume
 matplotlib
 filelock
+scipy
