@@ -5,3 +5,4 @@ tifffile
 caveclient
 cloud-volume
 matplotlib
+filelock

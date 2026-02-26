@@ -8,11 +8,13 @@ import argparse
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
+from filelock import FileLock
 
 from caveclient import CAVEclient
 from cloudvolume import CloudVolume, Bbox, Vec
 
 from get_all_cts import get_all_cts
+from generate_dosage import generate_dosage
 
 
 def weights_for_1d_voxel_downscaling(
@@ -85,6 +87,7 @@ def compute_new_voxel(seg, seg_res, vx_coord, vx_res, cells, method):
 
     unique_ids = np.unique(block)
 
+    val = 0
     if method == 'occupancy':
         unique_ids = set(unique_ids)
         cells = set(cells)
@@ -95,7 +98,6 @@ def compute_new_voxel(seg, seg_res, vx_coord, vx_res, cells, method):
             return 0
         
     elif method == 'density':
-        val = 0
         for uid in unique_ids:
             if uid not in cells: continue
 
@@ -104,6 +106,11 @@ def compute_new_voxel(seg, seg_res, vx_coord, vx_res, cells, method):
             neuron_image[mask] = 1
 
             val += resample(neuron_image, (0, 0, 0), seg_res, vx_res)
+
+    elif method == 'injection':
+        # Simply record the neuron that occupys the voxel and has the highest dosage
+        doses = map(lambda uid: cells.get(str(uid), 0), unique_ids)
+        val = max([0, *doses])
 
     return val
 
@@ -169,8 +176,10 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    project = Path(args.path)
+
     config = None
-    config_path = Path(args.path).joinpath("volume.json")
+    config_path = project.joinpath("volume.json")
     with open(config_path, 'r') as file:
         config = json.loads(file.read())
 
@@ -234,11 +243,31 @@ if __name__ == "__main__":
     origin = Vec(o['x'], o['y'], o['z'])    # nm
     origin = origin.astype(int)             # nm
 
-    folder = Path(args.folder).joinpath(config['output'])
+    folder = Path(args.path).joinpath(config['output'])
     svx_coord = (args.svx_x, args.svx_y, args.svx_z)
     svx_size = (svx_dx, svx_dy, svx_dz)
     vx_res = (dx_out, dy_out, dz_out)
     method =  config['method']
+
+    if method == 'injection':
+        filename = 'dosage.json'
+        dosage_path = project.joinpath(filename)
+        dosage = None
+
+        if dosage_path.exists() != True:
+            lock = FileLock(project.joinpath(filename + '.lock'))
+            with lock:
+                if dosage_path.exists() != True:
+                    dosage = generate_dosage(client, **args)
+                    with open(dosage_path, 'w') as file:
+                        json.dump(dosage, file)
+
+        if dosage is None:
+            with open(dosage_path, 'r') as file:
+                dosage = json.load(file)
+
+        cells = dosage
+
     svx = memoize_supervoxel(folder, seg_cv, seg_res, origin, svx_coord, svx_size, vx_res, cells, method)
 
     if not args.silent:

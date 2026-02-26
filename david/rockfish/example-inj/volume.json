@@ -1,0 +1,54 @@
+{
+    "name": "",
+    "output": "./output/svx",
+    "dataset": "minnie65_public",
+    "materialization": 1300,
+
+    "out_voxel_res": {
+        "x": 100,
+        "y": 100,
+        "z": 100
+    },
+    "out_svx_res": {
+        "x": 10000,
+        "y": 10000,
+        "z": 1600
+    },
+    "microns_origin": {
+        "x": 800000,
+        "y": 400000, 
+        "z": 850000
+    },
+    "whitelist": [
+        864691134966128927
+    ],
+
+    "method": "injection",
+    "injection": {
+        "seed": 632,
+        "origin": {
+            "x": 700000,
+            "y": 650000, 
+            "z": 750000
+        },
+        "serotypes": {
+            "23P": 1,
+            "4P": 1,
+            "5P-ET": 1,
+            "5P-IT": 1,
+            "5P-NP": 1,
+            "6P-CT": 1,
+            "GP-IT": 1,
+            "BC": 0.1,
+            "BPC": 0.1,
+            "MC": 0.1,
+            "NGC": 0.1
+        },
+        "sigma": 200,
+        "gc": 1e6,
+        "p": 2.365e-5,
+        "n": 1,
+        "H": 120,
+        "KF": 100
+    }
+}

@@ -13,7 +13,7 @@ def get_all_cts(client):
         .rename(columns={'target_id': 'nucleus_id'}) \
         .drop_duplicates('pt_root_id', keep=False)
 
-    indices = ['pt_root_id', 'classification_system', 'cell_type', 'nucleus_id', 'pt_position']
+    indices = ['pt_root_id', 'classification_system', 'cell_type', 'nucleus_id', 'pt_position', 'volume']
 
     ct_all_df = pd.merge(
         ct_auto_df[indices], ct_manual_df[indices], 
@@ -23,7 +23,7 @@ def get_all_cts(client):
         )
 
     merged_cols = ['cell_type', 'classification_system', 'pt_position']
-    for col in merged_cols:
+    for col in [*merged_cols, 'volume']:
         ct_all_df[col] = ct_all_df[f'{ col }_manual'].fillna(ct_all_df[f'{ col }_auto'])
 
     ct_all_df = ct_all_df.fillna({
@@ -37,3 +37,13 @@ def get_all_cts(client):
     })
 
     return ct_all_df
+
+
+if __name__ == '__main__':
+    from caveclient import CAVEclient
+
+    client = CAVEclient('minnie65_public')
+    client.version = 1300
+
+    cts = get_all_cts(client)
+    cts.head().to_csv('cts.csv')

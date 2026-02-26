@@ -4,6 +4,8 @@
 *.log
 *.tiff
 *.zip
+*.lock
+dosage.json
 
 
 *.pyc
