@@ -20,7 +20,7 @@ Also processes tpm_simulator/data/train/em/microns_*/ (512×512×256):
 vcpx from compute_vcpx (tpm_config): [1003, 1003, 95], vcpx_z_full=287 for chunk Z=256
 
 Logs: tpm_simulator/pipelines/local/logs/chunk/chunk_YYYYMMDD_HHMMSS.log
-"""
+""" 
 
 import logging
 import re
