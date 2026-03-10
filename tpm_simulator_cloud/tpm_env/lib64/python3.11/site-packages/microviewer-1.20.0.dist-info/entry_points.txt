@@ -1,0 +1,2 @@
+[console_scripts]
+uview = microviewer_cli:main

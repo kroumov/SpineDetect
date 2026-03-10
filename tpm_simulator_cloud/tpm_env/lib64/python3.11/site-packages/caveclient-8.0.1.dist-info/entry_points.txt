@@ -1,0 +1,2 @@
+[console_scripts]
+caveclient = caveclient.__main__:main

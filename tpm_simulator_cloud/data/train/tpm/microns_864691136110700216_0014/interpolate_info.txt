@@ -1,0 +1,117 @@
+========================================
+      MICRONS DATA DOWNLOAD INFO
+========================================
+Nucleus ID:       864691136110700216
+MIP Level (SEG):  3
+MIP Level (EM):   3
+Voxel Resolution: [64.0, 64.0, 80.0] nm
+Neuron Grid:      4x4x8 blocks -> 512x512x1024 px
+Vessel Grid:      12x12x12 blocks -> 1536x1536x1536 px
+Physical Size:    [32.768, 32.768, 81.92] um
+Voxel Origin:     [11794, 6611, 9737]
+Origin (nm):      [754816.0, 423104.0, 778960.0]
+
+--- Sampling Statistics ---
+Neurons Found:    1283
+Neurons Sampled:  18 (Ratio: 0.014283475361526982)
+Vessels Found:    36
+Vessels Sampled:  30 (Ratio: 0.8361997200866869)
+
+--- Whitelists Table Info ---
+Neuron Tables Statistics:
+  - allen_column_mtypes_v2: 1351 IDs loaded
+  - aibs_metamodel_celltypes_v661: 68218 IDs loaded
+  - baylor_gnn_cell_type_fine_model_v2: 49049 IDs loaded
+  - bodor_pt_cells: 12 IDs loaded
+  - l5et_column: 39 IDs loaded
+Vessel Tables Statistics:
+  - aibs_metamodel_celltypes_v661: 8729 IDs loaded
+========================================
+
+--- Downsampling Info ---
+Method:           gaussian average (Z-axis)
+Z Factor:         4
+Input Shape:      1536x1536x1536 pixels
+Output Shape:     1536x1536x384 pixels
+Input Resolution: [64.0, 64.0, 80.0] nm
+Output Resolution:[64.0, 64.0, 320.0] nm
+========================================
+
+--- Chunk Info ---
+Chunk Index:      14/16 (ci=1, cj=3, ck=0)
+Chunk Size:       128×128×256 px
+Chunk Grid:       4x4x1 = 16 chunks
+Vessel Chunk:     1003x1003x287 px (vcpx for NAOMi)
+Neuron Input:     512x512x256 px
+Vessel Input:     1536x1536x384 px
+Center Align:     neuron_center=(192,448,128) -> vessel_center=(704,960,192)
+Vessel Extract:   x[203:1206] y[459:1462] z[49:336]
+========================================
+--- NAOMi Degrade Info ---
+Timestamp:         2026-03-07 13:54:40
+
+[Input & Geometry]
+Input Size:        128x128x256 px
+Voxel Size:        [0.064, 0.064, 0.32] um
+vol_sz_um:         [8.19, 8.19, 81.92] um
+vol_depth_um:      10.00 um
+Slab Size:         136x136x64 px
+Focal Spacing:     3 px
+Num Slabs:         65
+vcpx:              [1199, 1199, 102]
+vcpx_z_full:       294
+
+[PSF & Optics - tpm_config]
+PSF Size:          [8.0, 8.0, 25.0] um
+opt_type:          standard
+condition:         standard
+
+[PSF & Optics - naomi_bridge overrides]
+NA:                1.0
+objNA:             1.0
+taillength:        50.0 um (min(50, max(8, vol_sz_um(3))))
+sampling:          2.0 um (min(50, max(2, vol_sz_um(1)/4)))
+prop_sz:           5 um
+blur:              0 um (disabled)
+zernikeWt:         [0 0 0 0 0.01 0 0 0 0 0 0.02]
+mask_exponent:     1.5
+propcrop:          true
+
+[PSF - check_psf_params defaults]
+lambda:            0.92 um
+n:                 1.35
+obj_fl:            4.5 mm
+ss:                2
+fastmask:          true
+
+[Scan & Preprocessing]
+pad_xy:            4
+max_slabs:         none
+max_slabs_start:   8
+scan_avg:          1
+sfrac:             1
+scan_buff:         5
+motion:            1
+fluor_scale:       0.9
+neuropil_enable:   1
+neuropil_scale:    0.04
+neuropil_thresh:   0.04
+
+[Output]
+Output Resolution: XY 0.064 um/px, Z 0.96 um/frame
+========================================
+--- Noise Model (noise_config) ---
+mu:               500
+sigma:            50
+mu0:              0
+sigma0:           0.1
+darkcount:        0.01
+bleedp:           0.01
+bleedw:           0.05
+========================================
+--- Interpolation ---
+Method:           bicubic
+Z Input:          65 px
+Z Output:         192 px
+XY:               unchanged
+========================================

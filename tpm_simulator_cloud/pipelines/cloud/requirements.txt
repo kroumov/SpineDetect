@@ -1,0 +1,11 @@
+# tpm_simulator pipeline - Python dependencies
+# For download: sample_random_volume + accumulate_roi
+# For downsample, chunk, interpolate: numpy/tifffile/scipy/skimage
+
+numpy
+tqdm
+tifffile
+scikit-image
+scipy
+cloud-volume
+caveclient

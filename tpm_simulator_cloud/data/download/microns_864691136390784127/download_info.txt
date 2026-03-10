@@ -1,0 +1,29 @@
+========================================
+      MICRONS DATA DOWNLOAD INFO
+========================================
+Nucleus ID:       864691136390784127
+MIP Level (SEG):  3
+MIP Level (EM):   3
+Voxel Resolution: [64.0, 64.0, 80.0] nm
+Neuron Grid:      4x4x8 blocks -> 512x512x1024 px
+Vessel Grid:      12x12x12 blocks -> 1536x1536x1536 px
+Physical Size:    [32.768, 32.768, 81.92] um
+Voxel Origin:     [16949, 7372, 7424]
+Origin (nm):      [1084736.0, 471808.0, 593920.0]
+
+--- Sampling Statistics ---
+Neurons Found:    1118
+Neurons Sampled:  14 (Ratio: 0.012858959950099082)
+Vessels Found:    28
+Vessels Sampled:  17 (Ratio: 0.6416680724006927)
+
+--- Whitelists Table Info ---
+Neuron Tables Statistics:
+  - allen_column_mtypes_v2: 1351 IDs loaded
+  - aibs_metamodel_celltypes_v661: 68218 IDs loaded
+  - baylor_gnn_cell_type_fine_model_v2: 49049 IDs loaded
+  - bodor_pt_cells: 12 IDs loaded
+  - l5et_column: 39 IDs loaded
+Vessel Tables Statistics:
+  - aibs_metamodel_celltypes_v661: 8729 IDs loaded
+========================================

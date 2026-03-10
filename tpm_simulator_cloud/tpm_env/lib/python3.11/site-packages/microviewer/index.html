@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <title>μViewer</title>
+    <script src="./jquery-3.7.0.min.js"></script>
+    <script src="./crackle.js"></script>
+    <script src="./datacube.js"></script>
+    <meta charset="utf-8">
+    <meta name="description" content="Visualize 3D images." />
+
+    <link rel="preload" as="image" href="./cursors/exact.png">
+    <link rel="preload" as="image" href="./cursors/small.png">
+    <link rel="preload" as="image" href="./cursors/medium.png">
+    <link rel="preload" as="image" href="./cursors/large.png">
+    <link rel="preload" as="image" href="./cursors/exact-active.png">
+    <link rel="preload" as="image" href="./cursors/small-active.png">
+    <link rel="preload" as="image" href="./cursors/medium-active.png">
+
+    <link rel="stylesheet" href="./microviewer.css" />
+    <script type="text/javascript" src="./microviewer.js"></script>
+  </head>
+  <body>
+    <div id="infobar">
+      <span id="axis"></span> <span id="magnification"></span> <span id="coord"></span> <span id="realcoord"></span> <span id="pxvalue"></span> 
+      <br> 
+      Last Click: <span id="clickcoord"></span> <span id="clickrealcoord"></span> <span id="clickpxvalue"></span>  <span id="loading"></span>
+    </div>
+
+    <div id="show-sidebar" class="hidden">
+      <hr />
+      <hr />
+      <hr />
+    </div>
+    <div id="right-sidebar" class="hidden">
+      <div id="instructions">
+        <div id="basic-info">
+          <span id="cloudpath"></span> 
+          <p>DIMENSIONS</p>
+          shape: <span id="shape"></span> 
+          <br />
+          bounds: (<span id="bounds"></span>)
+          <br / >
+          dtype: <span id="dtype"></span>
+          <br />
+          resolution: <span id="resolution"></span> nm<sup>3</sup>
+          <br />
+          memory: <span id="memory-usage"></span>
+        </div>
+
+        <p class="segmentation">SELECTION VISIBILITY</p>
+        <input class="segmentation" type="checkbox" id="show_hover" name="show_hover" checked="checked"/> <label class="segmentation" for="show_hover">Highlight (H)over?</label>
+        <input class="segmentation" type="checkbox" id="show_unselected" name="show_unselected" /> <label class="segmentation" for="show_unselected">Show (U)nselected?</label> <br />
+        <input class="segmentation" type="checkbox" id="paint_voxels" name="paint_voxels" /> <label class="segmentation" for="paint_voxels">Direct (P)aint?</label>
+
+        <p class="segmentation">BRUSH SIZE</p>
+        <div id="brush-tools" class="segmentation">
+          <div id="brush-size">
+            <div class="exact"></div>
+            <div class="small"></div>
+            <div class="medium"></div>
+            <div class="large"></div>
+          </div>
+          <button id="invert-selection" onclick="invertSelection()">invert selection</button>
+        </div>
+
+        <p class="segmentation">PAINT LABEL</p>
+        <div class="segmentation">
+          <input id="paintlabel" type="number" value="1" />
+        </div>
+
+        <p class="segmentation">SELECTED SEGMENTS <button id="copy-segs">copy</button></p>
+        <div class="segmentation" id="selected_segments"></div>
+        <textarea id="addsegs" class="segmentation" type="text" placeholder="Input comma separated segids and press enter."></textarea>
+
+        <p class="segmentation">SAVE SEGMENTATION</p>
+
+        <div class="segmentation">
+          <button id="save-numpy" onclick="saveNumpy()" title="Save as a .npy file. Might be big depending on your image size!">.npy</button> 
+          <button id="save-crackle" onclick="saveCrackle()" title="Save as a small .ckl file. There will be some processing time. Read more at https://github.com/seung-lab/crackle.">.ckl</button>
+        </div>
+
+        <p>CONTROLS</p>
+        <ul>
+          <li>W/S ,/. or scroll - advance selected images</li>
+          <li>A/D - switch slicing plane</li>
+          <li>Space - zoom in to point</li>
+          <li class='segmentation'>L - recolor segmentation labels</li>
+          <li>Left Click - <span class="segmentation">paint, </span>freeze info about current pixel</li>
+          <li class="segmentation">Right Click - erase</li>
+          <li class="segmentation">X - clear selected segments</li>
+          <li class="hyperview">left shift - hide segmentation</li>
+          <li class="hyperview">right shift - hide channel</li>
+          <li class="hyperview">+/- increase, decrease opacity</li>
+          <li class='segmentation'>H - toggle hover highlight</li>
+          <li class='segmentation'>U - toggle show unselected</li>
+          <li class='segmentation'>P - toggle direct voxel painting</li>
+          <li class='segmentation'>I - invert selection</li>
+          <li>1/2 - zoom out/in</li>
+          <li>M - show/hide menu</li>
+          <li class="segmentation">Q/E - decrease/increase brush size</li>
+          <li class="segmentation">ctrl+Z - undo</li>
+          <li class="segmentation">ctrl+shift+Z - redo</li>
+        </ul>
+      </div>
+    </div>
+
+    <canvas oncontextmenu="return false;" id="channel" class="exact" width="256" height="256"></canvas>
+
+  </body>
+</html>

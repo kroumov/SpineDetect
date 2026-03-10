@@ -1,0 +1,49 @@
+========================================
+      MICRONS DATA DOWNLOAD INFO
+========================================
+Nucleus ID:       864691136110700216
+MIP Level (SEG):  3
+MIP Level (EM):   3
+Voxel Resolution: [64.0, 64.0, 80.0] nm
+Neuron Grid:      4x4x8 blocks -> 512x512x1024 px
+Vessel Grid:      12x12x12 blocks -> 1536x1536x1536 px
+Physical Size:    [32.768, 32.768, 81.92] um
+Voxel Origin:     [11794, 6611, 9737]
+Origin (nm):      [754816.0, 423104.0, 778960.0]
+
+--- Sampling Statistics ---
+Neurons Found:    1283
+Neurons Sampled:  18 (Ratio: 0.014283475361526982)
+Vessels Found:    36
+Vessels Sampled:  30 (Ratio: 0.8361997200866869)
+
+--- Whitelists Table Info ---
+Neuron Tables Statistics:
+  - allen_column_mtypes_v2: 1351 IDs loaded
+  - aibs_metamodel_celltypes_v661: 68218 IDs loaded
+  - baylor_gnn_cell_type_fine_model_v2: 49049 IDs loaded
+  - bodor_pt_cells: 12 IDs loaded
+  - l5et_column: 39 IDs loaded
+Vessel Tables Statistics:
+  - aibs_metamodel_celltypes_v661: 8729 IDs loaded
+========================================
+
+--- Downsampling Info ---
+Method:           gaussian average (Z-axis)
+Z Factor:         4
+Input Shape:      1536x1536x1536 pixels
+Output Shape:     1536x1536x384 pixels
+Input Resolution: [64.0, 64.0, 80.0] nm
+Output Resolution:[64.0, 64.0, 320.0] nm
+========================================
+
+--- Chunk Info ---
+Chunk Index:      2/16 (ci=1, cj=0, ck=0)
+Chunk Size:       128×128×256 px
+Chunk Grid:       4x4x1 = 16 chunks
+Vessel Chunk:     1003x1003x287 px (vcpx for NAOMi)
+Neuron Input:     512x512x256 px
+Vessel Input:     1536x1536x384 px
+Center Align:     neuron_center=(192,64,128) -> vessel_center=(704,576,192)
+Vessel Extract:   x[203:1206] y[75:1078] z[49:336]
+========================================

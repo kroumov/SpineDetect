@@ -1,0 +1,3 @@
+/scratch4/en580/en580-syan28/tpm_simulator/data/chunk/microns_864691135837176979_0001
+/scratch4/en580/en580-syan28/tpm_simulator/data/degrade
+/scratch4/en580/en580-syan28/tpm_simulator/pipelines/cloud/logs/degrade/degrade_20260307_002453.log
