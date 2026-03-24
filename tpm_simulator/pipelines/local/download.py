@@ -1,7 +1,7 @@
 """
 Local MICrONS batch download. Same parameters as batch_download.sh.
 Output: tpm_simulator/data/download
-Logs: tpm_simulator/pipelines/local/logs/download/download_YYYYMMDD_HHMMSS.log
+Logs: local/logs/download/ or cloud/logs/download/ (when CLOUD_LOGS_DIR set)
 """
 import os
 import random
@@ -69,11 +69,14 @@ def main():
 
 
 def _run_downloads(config_path, original_config):
-    LOGS_DIR.mkdir(parents=True, exist_ok=True)
+    # Cloud: cloud/logs/download/; Local: local/logs/download/
+    cloud_logs = os.environ.get("CLOUD_LOGS_DIR")
+    _logs_base = Path(cloud_logs) / "download" if cloud_logs else LOGS_DIR
+    _logs_base.mkdir(parents=True, exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = LOGS_DIR / f"download_{ts}.log"
+    log_file = _logs_base / f"download_{ts}.log"
     patch_config({
-        "LOG_DIR": str(LOGS_DIR),
+        "LOG_DIR": str(_logs_base),
         "LOG_FILE": str(log_file),
     })
 

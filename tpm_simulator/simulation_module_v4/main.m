@@ -51,6 +51,12 @@ else
   end
 end
 
+if isempty(folders)
+  fprintf('No folders to process. Put subfolders with *neuron*.tif under input/\n');
+  out = {};
+  return;
+end
+
 out = {};
 for i = 1:numel(folders)
   folder_name = folders{i};

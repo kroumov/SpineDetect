@@ -31,6 +31,7 @@ MICRONS_PATTERN = re.compile(r"^microns_(\d+)_(\d+)$")
 
 def main():
     parser = argparse.ArgumentParser(description="Degrade pipeline: run NAOMi on chunk data")
+    parser.add_argument("--folder", "-f", type=str, default=None, help="Process only this folder (name or path); when set, count defaults to 1")
     parser.add_argument("--count", "-n", type=int, default=None, help="Limit number of chunks to process")
     args = parser.parse_args()
 
@@ -48,21 +49,38 @@ def main():
         log(f"ERROR: chunk dir not found: {CHUNK_DIR}")
         sys.exit(1)
 
-    folders = sorted(
-        d for d in CHUNK_DIR.iterdir()
-        if d.is_dir() and MICRONS_PATTERN.match(d.name)
-    )
-    if not folders:
-        log("No microns_*_* folders in chunk dir.")
-        sys.exit(0)
-
-    if args.count is not None:
-        folders = folders[: args.count]
+    if args.folder:
+        folder_path = Path(args.folder)
+        if folder_path.is_absolute():
+            if folder_path.is_dir():
+                folders = [folder_path]
+            else:
+                log(f"ERROR: folder not found: {folder_path}")
+                sys.exit(1)
+        else:
+            candidate = CHUNK_DIR / args.folder
+            if candidate.is_dir():
+                folders = [candidate]
+            else:
+                log(f"ERROR: folder not found: {candidate}")
+                sys.exit(1)
+        if args.count is None:
+            args.count = 1
+    else:
+        folders = sorted(
+            d for d in CHUNK_DIR.iterdir()
+            if d.is_dir() and MICRONS_PATTERN.match(d.name)
+        )
+        if not folders:
+            log("No microns_*_* folders in chunk dir.")
+            sys.exit(0)
+        if args.count is not None:
+            folders = folders[: args.count]
 
     log(f"Degrade pipeline started, log: {log_file}")
     log(f"Chunk dir: {CHUNK_DIR}")
     log(f"Output dir: {OUTPUT_DIR}")
-    log(f"Folders to process: {len(folders)}" + (f" (count={args.count})" if args.count else ""))
+    log(f"Folders to process: {len(folders)}" + (f" (folder={args.folder})" if args.folder else (f" (count={args.count})" if args.count else "")))
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     ok_count = 0

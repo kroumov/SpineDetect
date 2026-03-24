@@ -122,10 +122,17 @@ if isfield(S, 'psf_sz') && ~isempty(S.psf_sz)
   psf_params.psf_sz = S.psf_sz(1:3);
   mlog('[STEP psf_sz] override to [%.1f,%.1f,%.1f] um\n', psf_params.psf_sz(1), psf_params.psf_sz(2), psf_params.psf_sz(3));
 end
-% NA=0.8 for sharper PSF (default NA=0.6)
-psf_params.NA = 0.8;
-psf_params.objNA = 0.8;
-mlog('[STEP NA] override to NA=%.1f objNA=%.1f\n', psf_params.NA, psf_params.objNA);
+if isfield(S, 'NA') && ~isempty(S.NA)
+  psf_params.NA = S.NA(1);
+else
+  psf_params.NA = 1.0;
+end
+if isfield(S, 'objNA') && ~isempty(S.objNA)
+  psf_params.objNA = S.objNA(1);
+else
+  psf_params.objNA = 1.0;
+end
+mlog('[STEP NA] NA=%.1f objNA=%.1f\n', psf_params.NA, psf_params.objNA);
 % Override for thin slabs (NAOMi default taillength=50)
 psf_params.taillength = min(psf_params.taillength, max(8, vol_sz_um(3)));
 mlog('[STEP taillength] %.1f um (slab z=%.1f um)\n', psf_params.taillength, vol_sz_um(3));
@@ -135,8 +142,10 @@ mlog('[STEP sampling] %.1f um\n', psf_params.sampling);
 % Override for thin slabs (NAOMi default prop_sz=10)
 psf_params.prop_sz = min(psf_params.prop_sz, 5);
 mlog('[STEP prop_sz] %.1f um\n', psf_params.prop_sz);
-if strcmp(opt_type, 'standard')
-  psf_params.zernikeWt = [0 0 0 0 0.03 0 0 0 0 0 0.04];  % reduced from default 0.1/0.12 for sharper PSF
+if isfield(S, 'zernikeWt') && ~isempty(S.zernikeWt)
+  psf_params.zernikeWt = S.zernikeWt;
+elseif strcmp(opt_type, 'standard')
+  psf_params.zernikeWt = [0 0 0 0 0.01 0 0 0 0 0 0.02];
 end
 % blur: check_psf_params default 3um, but simulate_optical_propagation does not output
 % opt_out.blur, so setup_scan_volume_frame gets g_blur=[]. Explicitly set 0.
@@ -166,7 +175,8 @@ end
 if verbose
   fprintf('[Step 1] Optical propagation (simulate_optical_propagation)...\n');
 end
-mlog('[STEP 1] calling simulate_optical_propagation...\n');
+mlog('[STEP 1] calling simulate_optical_propagation... (this may take 5-15 min per slab for large vcpx)\n');
+tic;
 try
   PSF_struct = simulate_optical_propagation(vol_params, psf_params, vol_out_prop);
   if get_opt(S, 'debug_psf', false)
@@ -182,7 +192,8 @@ catch e
   rethrow(e);
 end
 clear vol_out_prop;
-mlog('[STEP 1] DONE simulate_optical_propagation PSF_struct.psf size=[%d,%d,%d]\n', size(PSF_struct.psf,1), size(PSF_struct.psf,2), size(PSF_struct.psf,3));
+t1 = toc;
+mlog('[STEP 1] DONE simulate_optical_propagation PSF_struct.psf size=[%d,%d,%d] elapsed=%.1f min\n', size(PSF_struct.psf,1), size(PSF_struct.psf,2), size(PSF_struct.psf,3), t1/60);
 
 PSF_struct.mask = PSF_struct.mask.^1.5;
 
@@ -198,9 +209,12 @@ if Np1*Np2*Np3 <= 1 || any(isnan(PSF(:))) || max(PSF(:)) <= 0
 end
 
 if nz < Np3
-  warn_append(log_path, 'PAD: volume Z (%d) < PSF Z (%d), padding slab to %d layers\n', nz, Np3, Np3);
-  mlog('[STEP] volume Z (%d) < PSF Z (%d), pad slab to %d\n', nz, Np3, Np3);
-  V = cat(3, V, zeros(nx, ny, Np3 - nz, 'single'));
+  warn_append(log_path, 'PAD: volume Z (%d) < PSF Z (%d), padding slab to %d layers (symmetric)\n', nz, Np3, Np3);
+  mlog('[STEP] volume Z (%d) < PSF Z (%d), pad slab to %d (symmetric)\n', nz, Np3, Np3);
+  pad_total = Np3 - nz;
+  pad_before = floor(pad_total / 2);
+  pad_after = pad_total - pad_before;
+  V = cat(3, zeros(nx, ny, pad_before, 'single'), V, zeros(nx, ny, pad_after, 'single'));
   nz = Np3;
 end
 

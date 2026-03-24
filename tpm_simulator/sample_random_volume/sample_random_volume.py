@@ -10,6 +10,7 @@ import signal
 import sys
 import threading
 import time
+import traceback
 from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
 from datetime import datetime
 from pathlib import Path
@@ -59,7 +60,9 @@ def _setup_logging():
     fh.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
     logger.addHandler(fh)
     ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
+    # LOG_LEVEL=DEBUG: show all debug info in real-time (e.g. block progress, skips)
+    stream_level = logging.DEBUG if os.environ.get("LOG_LEVEL") == "DEBUG" else logging.INFO
+    ch.setLevel(stream_level)
     ch.setFormatter(logging.Formatter("%(message)s"))
     logger.addHandler(ch)
     return logger
@@ -189,6 +192,7 @@ def download_one_block(args):
         return 0
 
     log.debug(f"Block ({i},{j},{k}) root_id={root_id}")
+    last_error = None
     for attempt in range(1, 4):  # 3 attempts
         result_box = [None]
 
@@ -211,8 +215,14 @@ def download_one_block(args):
 
         if isinstance(result_box[0], Exception):
             duration = time.perf_counter() - t0
-            log.warning(f"Block ({i},{j},{k}) attempt {attempt} ERROR: {result_box[0]}, duration={duration:.2f}s")
-            print(f"Block ({i},{j},{k}) failed (attempt {attempt}/3): {result_box[0]}")
+            e = result_box[0]
+            last_error = e
+            err_detail = f"{type(e).__name__}: {e}"
+            tb_str = traceback.format_exception(type(e), e, e.__traceback__)
+            tb_msg = "".join(tb_str).strip()
+            log.warning(f"Block ({i},{j},{k}) attempt {attempt} ERROR: {err_detail}, duration={duration:.2f}s\n{tb_msg}")
+            print(f"Block ({i},{j},{k}) failed (attempt {attempt}/3): {err_detail}")
+            print(f"[TRACEBACK] {tb_msg}", flush=True)
             continue
 
         duration = time.perf_counter() - t0
@@ -221,6 +231,9 @@ def download_one_block(args):
 
     log.exception(f"Block ({i},{j},{k}) FAILED after 3 attempts")
     print(f"Block ({i},{j},{k}) failed after 3 attempts")
+    if last_error is not None:
+        tb_msg = "".join(traceback.format_exception(type(last_error), last_error, last_error.__traceback__)).strip()
+        print(f"[LAST_ERROR] {type(last_error).__name__}: {last_error}\n{tb_msg}", flush=True)
     return 1
 
 # --- whitelist from CAVE tables ---
@@ -431,6 +444,8 @@ if __name__ == "__main__":
                             results.append(1)
         failed = sum(1 for r in results if r != 0)
         log.debug(f"End root_id={root_id}, blocks_failed={failed}")
+        if failed > 0:
+            print(f"WARN: {failed}/{len(tasks)} blocks failed (see tracebacks above)", flush=True)
     except KeyboardInterrupt:
         _log("Interrupted. Exiting.")
         sys.exit(130)

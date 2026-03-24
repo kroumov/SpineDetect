@@ -1,7 +1,8 @@
-function [vcpx, vasc_sz, vol_sz_um] = compute_vcpx(voxel_um, vol_depth_um, slab_nx, slab_ny, slab_nz, psf_sz, opt_type, condition, log_path)
+function [vcpx, vasc_sz, vol_sz_um] = compute_vcpx(voxel_um, vol_depth_um, slab_nx, slab_ny, slab_nz, psf_sz, opt_type, condition, log_path, opts)
 % COMPUTE_VCPX  Compute vessel propagation volume size (vcpx) for NAOMi.
 %
-% [vcpx, vasc_sz, vol_sz_um] = compute_vcpx(voxel_um, vol_depth_um, slab_nx, slab_ny, slab_nz, psf_sz, opt_type, condition, log_path)
+% [vcpx, vasc_sz, vol_sz_um] = compute_vcpx(voxel_um, vol_depth_um, slab_nx, slab_ny, slab_nz, psf_sz, opt_type, condition, log_path, opts)
+% opts: optional struct from tpm_config(); NA, objNA override psf_params when present
 %
 % vcpx: [X,Y,Z] voxel counts for vessel volume
 % vasc_sz: propagation volume size in µm
@@ -9,6 +10,7 @@ function [vcpx, vasc_sz, vol_sz_um] = compute_vcpx(voxel_um, vol_depth_um, slab_
 % log_path: optional, append debug info
 
 if nargin < 9, log_path = ''; end
+if nargin < 10, opts = struct(); end
 
 base_dir = fileparts(fileparts(mfilename('fullpath')));  % module root
 naomi_path = fullfile(base_dir, 'naomi');
@@ -40,11 +42,17 @@ if ~isempty(log_path) && exist('log_append','file')
   log_append(log_path, '[COMPUTE_VCPX] vol_sz_um=[%.2f,%.2f,%.2f] vres_xy=%.4g vres_z=%.4g (anisotropic)\n', vol_sz_um(1), vol_sz_um(2), vol_sz_um(3), vres_xy, vres_z);
 end
 
-% Get psf_params for gaussianBeamSize
+% Get psf_params for gaussianBeamSize (must match naomi_bridge overrides)
 params_init = TPM_Simulation_Parameters([], opt_type, condition);
 psf_params = params_init.psf_params;
 if ~isempty(psf_sz)
   psf_params.psf_sz = psf_sz;
+end
+if isfield(opts, 'NA') && ~isempty(opts.NA)
+  psf_params.NA = opts.NA(1);
+end
+if isfield(opts, 'objNA') && ~isempty(opts.objNA)
+  psf_params.objNA = opts.objNA(1);
 end
 if ~isempty(log_path) && exist('log_append','file')
   log_append(log_path, '[COMPUTE_VCPX] psf_sz=[%.1f,%.1f,%.1f] um\n', psf_params.psf_sz(1), psf_params.psf_sz(2), psf_params.psf_sz(3));

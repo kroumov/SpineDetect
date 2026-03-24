@@ -3,10 +3,10 @@ Config for MICrONS volume download and stitch.
 """
 
 # Where to write run outputs (default: current dir)
-OUTPUT_ROOT_DIR = './data/download'
+OUTPUT_ROOT_DIR = '/scratch4/en580/en580-syan28/tpm_simulator/data/download'
 # Override log path when run from download.py pipeline (set by patch)
-LOG_DIR = ''
-LOG_FILE = ''
+LOG_DIR = '/scratch4/en580/en580-syan28/tpm_simulator/pipelines/cloud/logs/download'
+LOG_FILE = '/scratch4/en580/en580-syan28/tpm_simulator/pipelines/cloud/logs/download/download_20260307_191637.log'
 
 # Segmentation MIP level (higher = coarser resolution)
 MIP_LEVEL = 3
@@ -39,8 +39,8 @@ STITCH_WORKERS = 4
 DATASET_NAME = "minnie65_public"
 MATERIALIZATION_VERSION = 1300
 # Fraction of found IDs to sample (neurons / vessels)
-NEURON_SAMPLING_RATIO = 0.030708300480928374
-VESSEL_SAMPLING_RATIO = 0.8369852654722281
+NEURON_SAMPLING_RATIO = 0.012858959950099082
+VESSEL_SAMPLING_RATIO = 0.6416680724006927
 # Set False to disable vessel mask. When True, uses pericyte+astrocyte (vessel-associated cells) from aibs_metamodel_celltypes_v661.
 USE_VESSEL_MASK = True
 

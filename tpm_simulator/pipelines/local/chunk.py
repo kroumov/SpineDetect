@@ -19,10 +19,11 @@ Also processes tpm_simulator/data/train/em/microns_*/ (512×512×256):
 
 vcpx from compute_vcpx (tpm_config): [1003, 1003, 95], vcpx_z_full=287 for chunk Z=256
 
-Logs: tpm_simulator/pipelines/local/logs/chunk/chunk_YYYYMMDD_HHMMSS.log
-""" 
+Logs: local/logs/chunk/ or cloud/logs/chunk/ (when CLOUD_LOGS_DIR set)
+"""
 
 import logging
+import os
 import re
 import sys
 from datetime import datetime
@@ -335,10 +336,13 @@ def process_em_folder(input_path: Path, log, log_debug, logger) -> bool:
 
 
 def main():
-    # Setup logging
-    LOGS_DIR.mkdir(parents=True, exist_ok=True)
+    # Cloud: cloud/logs/chunk/; Local: local/logs/chunk/
+    cloud_logs = os.environ.get("CLOUD_LOGS_DIR")
+    _logs_base = Path(cloud_logs) / "chunk" if cloud_logs else LOGS_DIR
+    _logs_base.mkdir(parents=True, exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = LOGS_DIR / f"chunk_{ts}.log"
+    log_file = _logs_base / f"chunk_{ts}.log"
+
     logger = logging.getLogger("chunk")
     logger.setLevel(logging.DEBUG)
     logger.handlers.clear()
@@ -364,6 +368,10 @@ def main():
             d for d in EM_DIR.iterdir()
             if d.is_dir() and d.name.startswith("microns_") and not re.match(r"^microns_\d+_\d+_\d{4}$", d.name)
         )
+    cloud_volume = os.environ.get("CLOUD_VOLUME")
+    if cloud_volume:
+        ds_folders = [d for d in ds_folders if d.name == cloud_volume]
+        em_folders = [d for d in em_folders if d.name == cloud_volume]
 
     if not ds_folders and not em_folders:
         log("No microns_* folders in downsample or em dir.")

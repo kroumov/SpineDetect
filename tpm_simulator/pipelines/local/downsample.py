@@ -8,10 +8,11 @@ Two branches:
 Input:  512×512×1024 (XY=512, Z=1024)
 Output: em 512×512×256; downsample 512×512×256
 
-Logs: tpm_simulator/pipelines/local/logs/downsample/downsample_YYYYMMDD_HHMMSS.log
+Logs: local/logs/downsample/ or cloud/logs/downsample/ (when CLOUD_LOGS_DIR set)
 """
 
 import logging
+import os
 import re
 import sys
 from datetime import datetime
@@ -112,7 +113,6 @@ def downsample_z_maxpool(vol: np.ndarray, factor: int) -> np.ndarray:
 
 def downsample_z_gaussian_avg(vol: np.ndarray, factor: int, sigma: float = 1.0) -> np.ndarray:
     """Gaussian smoothing along Z, then average over factor layers."""
-    # Gaussian filter along Z only (sigma=(0,0,sigma) -> no XY smoothing)
     smoothed = gaussian_filter(vol, sigma=(0, 0, sigma), mode="reflect")
     nz = smoothed.shape[0]
     nz_out = nz // factor
@@ -167,9 +167,13 @@ def _write_downsample_info(out_folder: Path, download_content: str, nid: str,
 
 
 def main():
-    LOGS_DIR.mkdir(parents=True, exist_ok=True)
+    # Cloud: cloud/logs/downsample/; Local: local/logs/downsample/
+    cloud_logs = os.environ.get("CLOUD_LOGS_DIR")
+    _logs_base = Path(cloud_logs) / "downsample" if cloud_logs else LOGS_DIR
+    _logs_base.mkdir(parents=True, exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = LOGS_DIR / f"downsample_{ts}.log"
+    log_file = _logs_base / f"downsample_{ts}.log"
+
     logger = logging.getLogger("downsample")
     logger.setLevel(logging.DEBUG)
     logger.handlers.clear()
@@ -191,6 +195,9 @@ def main():
     DOWNSAMPLE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     volumes = sorted(DOWNLOAD_DIR.glob("microns_*"))
+    cloud_volume = os.environ.get("CLOUD_VOLUME")
+    if cloud_volume:
+        volumes = [v for v in volumes if v.name == cloud_volume]
     if not volumes:
         log(f"ERROR: No microns_* folders in {DOWNLOAD_DIR}")
         sys.exit(1)

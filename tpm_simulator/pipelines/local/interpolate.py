@@ -6,6 +6,7 @@ interpolate_info.txt = noise_info content + interpolation section.
 """
 
 import argparse
+import os
 import re
 import sys
 from datetime import datetime
@@ -18,8 +19,9 @@ from tqdm import tqdm
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 LOCAL_DIR = Path(__file__).resolve().parent
-NOISE_DIR = PROJECT_ROOT / "data" / "noise"
-OUTPUT_DIR = PROJECT_ROOT / "data" / "train" / "tpm"
+# Cloud pipeline may set CLOUD_NOISE_DIR / CLOUD_OUTPUT_DIR (e.g. DATA_ROOT on scratch)
+NOISE_DIR = Path(os.environ["CLOUD_NOISE_DIR"]) if os.environ.get("CLOUD_NOISE_DIR") else PROJECT_ROOT / "data" / "noise"
+OUTPUT_DIR = Path(os.environ["CLOUD_OUTPUT_DIR"]) if os.environ.get("CLOUD_OUTPUT_DIR") else PROJECT_ROOT / "data" / "train" / "tpm"
 LOGS_DIR = LOCAL_DIR / "logs" / "interpolate"
 
 Z_IN = 65
@@ -54,6 +56,13 @@ def main():
         d for d in NOISE_DIR.iterdir()
         if d.is_dir() and MICRONS_PATTERN.match(d.name)
     )
+    cloud_volume = os.environ.get("CLOUD_VOLUME")
+    cloud_single = os.environ.get("CLOUD_SINGLE_FOLDER")  # for parallel: process one chunk only
+    if cloud_single:
+        folders = [d for d in folders if d.name == cloud_single]
+    elif cloud_volume:
+        prefix = cloud_volume.rstrip("_") + "_"
+        folders = [d for d in folders if d.name == cloud_volume or d.name.startswith(prefix)]
     if not folders:
         log("No microns_*_* folders in noise dir.")
         sys.exit(0)

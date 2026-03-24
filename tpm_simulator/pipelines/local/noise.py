@@ -30,13 +30,13 @@ MICRONS_PATTERN = re.compile(r"^microns_\d+_\d+$")
 TIFF_PATTERN = re.compile(r"^neurons_.+\.tiff?$", re.I)
 
 # Noise model params (passed to MATLAB; edit here to tune)
-NOISE_MU = 100         # Mean gain per photon
-NOISE_SIGMA = 10     # Variance of gain per photon
+NOISE_MU = 500         # Mean gain per photon
+NOISE_SIGMA = 50     # Variance of gain per photon
 NOISE_MU0 = 0          # Readout offset
 NOISE_SIGMA0 = 0.1     # Readout noise std
 NOISE_DARKCOUNT = 0.01 # PMT dark count rate
-NOISE_BLEEDP = 0    # Pixel bleed probability (0 disables)
-NOISE_BLEEDW = 0     # Max bleed fraction when it occurs
+NOISE_BLEEDP = 0.01    # Pixel bleed probability (0 disables)
+NOISE_BLEEDW = 0.05     # Max bleed fraction when it occurs
 
 
 def _noise_params_section():
