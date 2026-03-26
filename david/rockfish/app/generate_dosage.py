@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
     filename = "dosage.json"
 
-    project = Path('david/rockfish/example/')
+    project = Path('david/rockfish/example-inj/')
 
     client = CAVEclient('minnie65_public')
     client.version = 1300
