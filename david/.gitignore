@@ -1,0 +1,8 @@
+*.npy
+*.h5
+*.log
+*.tiff
+
+
+*.pyc
+**/__pycache__

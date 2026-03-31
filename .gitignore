@@ -1,0 +1,14 @@
+.env
+*.tif
+*.npz
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.tif
+*.npz
+*.png
+*.jpg
+*.jpeg
