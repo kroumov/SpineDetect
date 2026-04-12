@@ -1,0 +1,11 @@
+DEBUG 2026-04-09 23:07:56 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
+DEBUG 2026-04-09 23:07:56 RUN_ID=20260409_230756 PIPELINE_LOG=logs/pipeline/pipeline_20260409_230756.txt
+DEBUG 2026-04-09 23:07:56 STEP=download VOLUME=
+/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/download.sh: line 11: 20438 Illegal instruction     (core dumped) python -c "import cloudfiles" 2> /dev/null
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/local/download.py", line 59
+    print(f"!!!!!!! {SCRIPT_DIR})
+          ^
+SyntaxError: unterminated f-string literal (detected at line 59)
+/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/downsample.sh: line 9: 20509 Illegal instruction     (core dumped) python -c "import numpy" 2> /dev/null
+/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/downsample.sh: line 18: 20526 Illegal instruction     (core dumped) python "$DOWNSAMPLE_PY"
+DEBUG 2026-04-09 23:08:00 EXIT rc=0

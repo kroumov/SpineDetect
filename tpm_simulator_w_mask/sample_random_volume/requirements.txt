@@ -1,0 +1,7 @@
+# MICRONS_DATA scripts - Python deps
+numpy
+tqdm
+tifffile
+scikit-image
+cloud-volume
+caveclient

@@ -1,0 +1,12 @@
+DEBUG 2026-04-09 23:03:24 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
+DEBUG 2026-04-09 23:03:24 RUN_ID=20260409_230324 PIPELINE_LOG=logs/pipeline/pipeline_20260409_230324.txt
+DEBUG 2026-04-09 23:03:24 STEP=download VOLUME=
+/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/download.sh: line 11: 18065 Illegal instruction     (core dumped) python -c "import cloudfiles" 2> /dev/null
+[23:03:26] Download pipeline started, log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/download/download_20260409_230326.log
+[23:03:26] MIP 3 (1 volumes)
+[23:03:26] [MIP 3] 1/1
+[23:03:27] ERROR: sample_random_volume.py failed
+Done: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/download
+/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/local/download.py
+WARN: No new microns_* folder detected after download
+DEBUG 2026-04-09 23:03:27 EXIT rc=0
