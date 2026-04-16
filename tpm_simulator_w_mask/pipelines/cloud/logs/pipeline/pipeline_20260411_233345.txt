@@ -1,0 +1,15 @@
+DEBUG 2026-04-11 23:33:45 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
+DEBUG 2026-04-11 23:33:45 RUN_ID=20260411_233345 PIPELINE_LOG=logs/pipeline/pipeline_20260411_233345.txt
+DEBUG 2026-04-11 23:33:45 STEP= VOLUME=
+!!!!!!! /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/sample_random_volume
+[23:33:48] Download pipeline started, log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/download/download_20260411_233348.log
+[23:33:48] MIP 3 (1 volumes)
+[23:33:48] [MIP 3] 1/1
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/sample_random_volume/sample_random_volume.py", line 367
+    NEURON_TABLE_FILTERS = {"aibs_metamodel_celltypes_v661": {"filter_out_dict": {"filter_in_dict": {"cell_type": ["23P"]}}}
+                           ^
+SyntaxError: '{' was never closed
+[23:33:48] ERROR: sample_random_volume.py failed
+Done: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/download
+WARN: No new microns_* folder detected after download
+DEBUG 2026-04-11 23:33:48 EXIT rc=0

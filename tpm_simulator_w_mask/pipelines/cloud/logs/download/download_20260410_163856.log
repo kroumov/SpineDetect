@@ -1,0 +1,11 @@
+[16:38:56] Download pipeline started, log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/download/download_20260410_163856.log
+[16:38:56] MIP 3 (1 volumes)
+[16:38:56] [MIP 3] 1/1
+Traceback (most recent call last):
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/sample_random_volume/sample_random_volume.py", line 20, in <module>
+    from hks.mask_generation import mask_generation_pipeline
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/hks/mask_generation.py", line 19, in <module>
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
+                   ^^^^
+NameError: name 'Path' is not defined
+[16:39:52] ERROR: sample_random_volume.py failed

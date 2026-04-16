@@ -1,0 +1,90 @@
+DEBUG 2026-04-11 17:52:49 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
+DEBUG 2026-04-11 17:52:49 RUN_ID=20260411_175249 PIPELINE_LOG=logs/pipeline/pipeline_20260411_175249.txt
+DEBUG 2026-04-11 17:52:49 STEP=downsample VOLUME=microns_864691134856455713
+Log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/downsample/downsample_20260411_175251.log
+Processing 1 volumes: max-pool -> em/, gaussian-avg -> downsample/
+Volumes:   0%|          | 0/1 [00:00<?, ?it/s]  Loading neurons...
+  neurons loaded: (1024, 512, 512)
+  neurons [em]: 512x512x1024 -> 512x512x256
+  neurons [downsample]: 512x512x1024 -> 512x512x256
+  Loading vessels...
+  vessels loaded: (1536, 1536, 1536)
+  vessels [em]: 1536x1536x1536 -> 1536x1536x384
+  vessels [downsample]: 1536x1536x1536 -> 1536x1536x384
+  Loading masks...
+  masks loaded: (1024, 3, 512, 512)
+  masks [downsample]: 512x512x1024x3 -> 512x512x256x3
+Volumes: 100%|██████████| 1/1 [02:11<00:00, 131.27s/it]Volumes: 100%|██████████| 1/1 [02:11<00:00, 131.27s/it]
+Done. EM: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/train/em, Downsample: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/downsample
+Log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/chunk/chunk_20260411_175503.log
+Downsample: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/downsample (1 folders)
+EM: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/train/em (1 folders)
+--- [Downsample 1/1] microns_864691134856455713 ---
+Processing: microns_864691134856455713
+Loading neurons from neurons_864691134856455713.tiff...
+Loading masks from masks_864691134856455713.tiff...
+Loading vessels from vessels_864691134856455713.tiff...
+Neurons: 512×512×256 | Vessels: 1536×1536×384
+Chunk grid: 4×4×1 = 16 chunks | vcpx: 1003×1003×287
+microns_864691134856455713:   0%|          | 0/16 [00:00<?, ?it/s]microns_864691134856455713:   6%|▋         | 1/16 [00:10<02:43, 10.91s/it]microns_864691134856455713:  12%|█▎        | 2/16 [00:22<02:37, 11.24s/it]microns_864691134856455713:  19%|█▉        | 3/16 [00:33<02:23, 11.01s/it]microns_864691134856455713:  25%|██▌       | 4/16 [00:44<02:13, 11.14s/it]microns_864691134856455713:  31%|███▏      | 5/16 [00:55<02:00, 10.99s/it]microns_864691134856455713:  38%|███▊      | 6/16 [01:06<01:50, 11.02s/it]microns_864691134856455713:  44%|████▍     | 7/16 [01:17<01:38, 10.97s/it]microns_864691134856455713:  50%|█████     | 8/16 [01:27<01:27, 10.92s/it]microns_864691134856455713:  56%|█████▋    | 9/16 [01:38<01:16, 10.87s/it]microns_864691134856455713:  62%|██████▎   | 10/16 [01:49<01:04, 10.82s/it]microns_864691134856455713:  69%|██████▉   | 11/16 [02:00<00:54, 10.82s/it]microns_864691134856455713:  75%|███████▌  | 12/16 [02:11<00:43, 10.82s/it]microns_864691134856455713:  81%|████████▏ | 13/16 [02:21<00:32, 10.83s/it]microns_864691134856455713:  88%|████████▊ | 14/16 [02:32<00:21, 10.85s/it]microns_864691134856455713:  94%|█████████▍| 15/16 [02:43<00:10, 10.84s/it]microns_864691134856455713: 100%|██████████| 16/16 [02:54<00:00, 10.81s/it]microns_864691134856455713: 100%|██████████| 16/16 [02:54<00:00, 10.90s/it]
+Done: microns_864691134856455713 -> 16 chunks
+--- [EM 1/1] microns_864691134856455713 ---
+Processing EM: microns_864691134856455713
+EM cropped Z: 256 -> 192
+EM chunk grid: 4×4×1 = 16 chunks (128×128×192)
+EM microns_864691134856455713:   0%|          | 0/16 [00:00<?, ?it/s]EM microns_864691134856455713:  12%|█▎        | 2/16 [00:00<00:01,  9.94it/s]EM microns_864691134856455713:  25%|██▌       | 4/16 [00:00<00:01, 11.32it/s]EM microns_864691134856455713:  38%|███▊      | 6/16 [00:00<00:00, 10.99it/s]EM microns_864691134856455713:  50%|█████     | 8/16 [00:00<00:00, 11.05it/s]EM microns_864691134856455713:  62%|██████▎   | 10/16 [00:00<00:00, 11.79it/s]EM microns_864691134856455713:  75%|███████▌  | 12/16 [00:01<00:00, 12.35it/s]EM microns_864691134856455713:  88%|████████▊ | 14/16 [00:01<00:00, 12.52it/s]EM microns_864691134856455713: 100%|██████████| 16/16 [00:01<00:00, 12.50it/s]EM microns_864691134856455713: 100%|██████████| 16/16 [00:01<00:00, 11.93it/s]
+Done EM: microns_864691134856455713 -> 16 chunks, removed original folder
+Finished: downsample 1/1, em 1/1
+[17:58:17] Resume: 16 chunks remaining
+[17:58:17] Degrade started, run dir: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817
+[17:58:17] Chunk dir: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk, output: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/degrade, folders: 16
+[17:58:17] --- [1/16] microns_864691134856455713_0001 ---
+[17:58:17] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0001 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:17] FAIL: microns_864691134856455713_0001
+[17:58:17] --- [2/16] microns_864691134856455713_0002 ---
+[17:58:17] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0002 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:17] FAIL: microns_864691134856455713_0002
+[17:58:17] --- [3/16] microns_864691134856455713_0003 ---
+[17:58:17] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0003 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:18] FAIL: microns_864691134856455713_0003
+[17:58:18] --- [4/16] microns_864691134856455713_0004 ---
+[17:58:18] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0004 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:18] FAIL: microns_864691134856455713_0004
+[17:58:18] --- [5/16] microns_864691134856455713_0005 ---
+[17:58:18] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0005 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:18] FAIL: microns_864691134856455713_0005
+[17:58:18] --- [6/16] microns_864691134856455713_0006 ---
+[17:58:18] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0006 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:18] FAIL: microns_864691134856455713_0006
+[17:58:18] --- [7/16] microns_864691134856455713_0007 ---
+[17:58:18] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0007 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:19] FAIL: microns_864691134856455713_0007
+[17:58:19] --- [8/16] microns_864691134856455713_0008 ---
+[17:58:19] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0008 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:19] FAIL: microns_864691134856455713_0008
+[17:58:19] --- [9/16] microns_864691134856455713_0009 ---
+[17:58:19] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0009 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:19] FAIL: microns_864691134856455713_0009
+[17:58:19] --- [10/16] microns_864691134856455713_0010 ---
+[17:58:19] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0010 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:19] FAIL: microns_864691134856455713_0010
+[17:58:19] --- [11/16] microns_864691134856455713_0011 ---
+[17:58:19] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0011 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:20] FAIL: microns_864691134856455713_0011
+[17:58:20] --- [12/16] microns_864691134856455713_0012 ---
+[17:58:20] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0012 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:20] FAIL: microns_864691134856455713_0012
+[17:58:20] --- [13/16] microns_864691134856455713_0013 ---
+[17:58:20] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0013 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:20] FAIL: microns_864691134856455713_0013
+[17:58:20] --- [14/16] microns_864691134856455713_0014 ---
+[17:58:20] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0014 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:20] FAIL: microns_864691134856455713_0014
+[17:58:20] --- [15/16] microns_864691134856455713_0015 ---
+[17:58:20] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0015 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:21] FAIL: microns_864691134856455713_0015
+[17:58:21] --- [16/16] microns_864691134856455713_0016 ---
+[17:58:21] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0016 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:21] FAIL: microns_864691134856455713_0016
+[17:58:21] Finished: 0/16 succeeded
+DEBUG 2026-04-11 17:58:21 EXIT rc=0

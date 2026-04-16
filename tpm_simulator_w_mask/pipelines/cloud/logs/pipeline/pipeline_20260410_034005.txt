@@ -1,0 +1,15 @@
+DEBUG 2026-04-10 03:40:05 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
+DEBUG 2026-04-10 03:40:05 RUN_ID=20260410_034005 PIPELINE_LOG=logs/pipeline/pipeline_20260410_034005.txt
+DEBUG 2026-04-10 03:40:05 STEP= VOLUME=
+!!!!!!! /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/sample_random_volume
+[03:40:10] Download pipeline started, log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/download/download_20260410_034009.log
+[03:40:10] MIP 3 (1 volumes)
+[03:40:10] [MIP 3] 1/1
+Traceback (most recent call last):
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/sample_random_volume/sample_random_volume.py", line 18, in <module>
+    from hks.mask_generation import mask_generation_pipeline
+ModuleNotFoundError: No module named 'hks'
+[03:40:10] ERROR: sample_random_volume.py failed
+Done: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/download
+WARN: No new microns_* folder detected after download
+DEBUG 2026-04-10 03:40:10 EXIT rc=0

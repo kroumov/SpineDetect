@@ -1,0 +1,4 @@
+[23:09:10] Download pipeline started, log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/download/download_20260409_230910.log
+[23:09:10] MIP 3 (1 volumes)
+[23:09:10] [MIP 3] 1/1
+[23:09:11] ERROR: sample_random_volume.py failed

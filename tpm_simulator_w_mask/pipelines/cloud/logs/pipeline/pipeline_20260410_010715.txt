@@ -1,0 +1,44 @@
+DEBUG 2026-04-10 01:07:15 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
+DEBUG 2026-04-10 01:07:15 RUN_ID=20260410_010715 PIPELINE_LOG=logs/pipeline/pipeline_20260410_010715.txt
+DEBUG 2026-04-10 01:07:15 STEP=download VOLUME=
+!!!!!!! /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/sample_random_volume
+[01:07:18] Download pipeline started, log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/download/download_20260410_010718.log
+[01:07:18] MIP 3 (1 volumes)
+[01:07:18] [MIP 3] 1/1
+/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:273: FutureWarning: You are using a Python version (3.10.20) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+Start log_file=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/download/download_20260410_010718.log
+Log file: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/download/download_20260410_010718.log
+Traceback (most recent call last):
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/sample_random_volume/sample_random_volume.py", line 358, in <module>
+    client = CAVEclient(config.DATASET_NAME)
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/caveclient/frameworkclient.py", line 122, in __new__
+    return CAVEclientFull(
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/caveclient/frameworkclient.py", line 534, in __init__
+    self.local_server = self.info.local_server()
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/caveclient/frameworkclient.py", line 370, in info
+    self._info = InfoServiceClient(
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/caveclient/infoservice.py", line 77, in __init__
+    ds_info = self.get_datastack_info(datastack_name=datastack_name)
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/caveclient/base.py", line 526, in wrapper
+    out = method(*args, **kwargs)
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/caveclient/infoservice.py", line 151, in get_datastack_info
+    self.info_cache[datastack_name] = handle_response(response)
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/caveclient/base.py", line 95, in handle_response
+    _check_authorization_redirect(response)
+  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/microns_env/lib/python3.10/site-packages/caveclient/base.py", line 109, in _check_authorization_redirect
+    raise AuthException(
+caveclient.base.AuthException: You have not setup a token to access
+https://global.daf-apis.com/info/api/v2/datastack/full/minnie65_public
+with the current auth configuration.
+
+Read the documentation at 
+https://caveconnectome.github.io/CAVEclient/tutorials/authentication/
+or follow instructions under 
+client.auth.get_new_token() for how to set a valid API token.
+after initializing a global client with
+client=CAVEclient(server_address="https://global.daf-apis.com")
+[01:07:26] ERROR: sample_random_volume.py failed
+Done: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/download
+WARN: No new microns_* folder detected after download
+DEBUG 2026-04-10 01:07:26 EXIT rc=0
