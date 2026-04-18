@@ -343,7 +343,7 @@ def sample_roi_at_mip(client, img_cv, seg_cv, neuron_whitelist, vessel_whitelist
                 log.debug(f"ROI sampling attempt={attempt} root_id={root_id} skip: no neurons in ROI (uniq_count={len(uniq)})")
                 continue
 
-            n_ids = random.sample(found_n, max(3, int(len(found_n) * N_RATIO)))
+            n_ids = random.sample(found_n, max(1, int(len(found_n) * N_RATIO)))
             v_ids = random.sample(found_v, max(1, int(len(found_v) * V_RATIO))) if found_v else []
             out = (origin_nm, em_mip, n_ids, v_ids, len(found_n), len(found_v), nuc)
             duration = time.perf_counter() - t0
@@ -364,8 +364,9 @@ if __name__ == "__main__":
     timestamp = int(client.materialize.get_timestamp(version=client.materialize.version).timestamp())
 
     NEURON_TABLES = ["allen_column_mtypes_v2", "aibs_metamodel_celltypes_v661", "baylor_gnn_cell_type_fine_model_v2", "bodor_pt_cells", "l5et_column"]
-    # NEURON_TABLE_FILTERS = {"aibs_metamodel_celltypes_v661": {"filter_in_dict": {"cell_type": ["23P", "BC"]}}}
-    NEURON_TABLE_FILTERS = {"aibs_metamodel_celltypes_v661": {"filter_out_dict": {"classification_system": "nonneuron"}}}
+    NEURON_TABLE_FILTERS = {"aibs_metamodel_celltypes_v661": {"filter_in_dict": {"cell_type": ["23P"]}}}
+    log.debug(f"neuron table filters: {NEURON_TABLE_FILTERS}")
+#    NEURON_TABLE_FILTERS = {"aibs_metamodel_celltypes_v661": {"filter_out_dict": {"classification_system": "nonneuron"}}}
     # Vessel proxy: pericyte + astrocyte (vessel-associated cells) from aibs_metamodel_celltypes_v661.
     # Coregistration tables (coregistration_manual_v4, apl_functional_coreg_vess_fwd, etc.) contain pt_root_id
     # which are NEURON IDs, not vessel segment IDs.
@@ -391,6 +392,7 @@ if __name__ == "__main__":
     origin_nm, em_mip, neuron_ids, vessel_ids, f_n_count, f_v_count, nuc = sample_roi_at_mip(
         client, img_cv, seg_cv, neuron_whitelist, vessel_whitelist, timestamp
     )
+    log.debug(f"neuron root IDs: {neuron_ids}")
     
     root_id = nuc["pt_root_id"]
     save_dir = Path(OUTPUT_ROOT) / f"microns_{root_id}"
