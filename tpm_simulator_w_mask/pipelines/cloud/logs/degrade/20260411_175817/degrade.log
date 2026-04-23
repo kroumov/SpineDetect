@@ -1,0 +1,148 @@
+[17:58:17] Resume: 16 chunks remaining
+[17:58:17] Degrade started, run dir: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817
+[17:58:17] Chunk dir: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk, output: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/degrade, folders: 16
+[17:58:17] --- [1/16] microns_864691134856455713_0001 ---
+[17:58:17] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0001 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:17] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0001
+[17:58:17] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:17] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:17] FAIL: microns_864691134856455713_0001
+[17:58:17] --- [2/16] microns_864691134856455713_0002 ---
+[17:58:17] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0002 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:17] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0002
+[17:58:17] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:17] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:17] FAIL: microns_864691134856455713_0002
+[17:58:17] --- [3/16] microns_864691134856455713_0003 ---
+[17:58:17] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0003 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:17] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0003
+[17:58:17] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:18] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:18] FAIL: microns_864691134856455713_0003
+[17:58:18] --- [4/16] microns_864691134856455713_0004 ---
+[17:58:18] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0004 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:18] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0004
+[17:58:18] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:18] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:18] FAIL: microns_864691134856455713_0004
+[17:58:18] --- [5/16] microns_864691134856455713_0005 ---
+[17:58:18] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0005 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:18] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0005
+[17:58:18] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:18] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:18] FAIL: microns_864691134856455713_0005
+[17:58:18] --- [6/16] microns_864691134856455713_0006 ---
+[17:58:18] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0006 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:18] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0006
+[17:58:18] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:18] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:18] FAIL: microns_864691134856455713_0006
+[17:58:18] --- [7/16] microns_864691134856455713_0007 ---
+[17:58:18] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0007 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:18] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0007
+[17:58:18] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:19] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:19] FAIL: microns_864691134856455713_0007
+[17:58:19] --- [8/16] microns_864691134856455713_0008 ---
+[17:58:19] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0008 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:19] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0008
+[17:58:19] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:19] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:19] FAIL: microns_864691134856455713_0008
+[17:58:19] --- [9/16] microns_864691134856455713_0009 ---
+[17:58:19] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0009 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:19] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0009
+[17:58:19] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:19] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:19] FAIL: microns_864691134856455713_0009
+[17:58:19] --- [10/16] microns_864691134856455713_0010 ---
+[17:58:19] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0010 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:19] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0010
+[17:58:19] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:19] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:19] FAIL: microns_864691134856455713_0010
+[17:58:19] --- [11/16] microns_864691134856455713_0011 ---
+[17:58:19] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0011 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:19] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0011
+[17:58:19] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:19] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:20] FAIL: microns_864691134856455713_0011
+[17:58:20] --- [12/16] microns_864691134856455713_0012 ---
+[17:58:20] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0012 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:20] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0012
+[17:58:20] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:20] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:20] FAIL: microns_864691134856455713_0012
+[17:58:20] --- [13/16] microns_864691134856455713_0013 ---
+[17:58:20] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0013 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:20] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0013
+[17:58:20] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:20] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:20] FAIL: microns_864691134856455713_0013
+[17:58:20] --- [14/16] microns_864691134856455713_0014 ---
+[17:58:20] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0014 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:20] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0014
+[17:58:20] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:20] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:20] FAIL: microns_864691134856455713_0014
+[17:58:20] --- [15/16] microns_864691134856455713_0015 ---
+[17:58:20] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0015 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:20] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0015
+[17:58:20] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:20] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:21] FAIL: microns_864691134856455713_0015
+[17:58:21] --- [16/16] microns_864691134856455713_0016 ---
+[17:58:21] degrade_one_chunk.sh ENTERED arg1=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691134856455713_0016 arg2=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_175817/degrade.log
+[17:58:21] degrade_one_chunk: sourced config, chunk=microns_864691134856455713_0016
+[17:58:21] degrade_one_chunk: MATLAB_CMD=matlab -batch matlab_path=/usr/local/bin/matlab
+[17:58:21] degrade_one_chunk: about to run MATLAB
+/cis/local/linux/MATLAB/R2015a/bin/glnxa64/need_softwareopengl: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+MATLAB is selecting SOFTWARE OPENGL rendering.
+/usr/local/bin/matlab: 1: eval: Syntax error: "(" unexpected
+[17:58:21] FAIL: microns_864691134856455713_0016
+[17:58:21] Finished: 0/16 succeeded

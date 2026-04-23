@@ -1,0 +1,3 @@
+C:/Users/晟/Desktop/临时/tpm_simulator/data/chunk/microns_864691135430623536_0002
+C:/Users/晟/Desktop/临时/tpm_simulator/data/degrade
+C:/Users/晟/Desktop/临时/tpm_simulator/pipelines/local/logs/degrade/degrade_20260306_120005.log

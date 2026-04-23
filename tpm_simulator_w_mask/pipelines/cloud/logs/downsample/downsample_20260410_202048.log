@@ -1,0 +1,11 @@
+2026-04-10 20:20:48,397 [INFO] Log: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/downsample/downsample_20260410_202048.log
+2026-04-10 20:20:48,397 [INFO] Processing 1 volumes: max-pool -> em/, gaussian-avg -> downsample/
+2026-04-10 20:20:48,413 [INFO]   Loading neurons...
+2026-04-10 20:20:51,628 [INFO]   neurons loaded: (1024, 512, 512)
+2026-04-10 20:20:51,905 [INFO]   neurons [em]: 512x512x1024 -> 512x512x256
+2026-04-10 20:20:54,829 [INFO]   neurons [downsample]: 512x512x1024 -> 512x512x256
+2026-04-10 20:20:55,773 [INFO]   Loading vessels...
+2026-04-10 20:21:39,342 [INFO]   vessels loaded: (1536, 1536, 1536)
+2026-04-10 20:21:42,885 [INFO]   vessels [em]: 1536x1536x1536 -> 1536x1536x384
+2026-04-10 20:22:18,877 [INFO]   vessels [downsample]: 1536x1536x1536 -> 1536x1536x384
+2026-04-10 20:22:30,783 [INFO] Done. EM: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/train/em, Downsample: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/downsample

@@ -1,0 +1,66 @@
+[13:47:19] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0001 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:19] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:19] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:19] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0001.txt
+[13:47:19] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0001
+[13:47:19] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0002 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:19] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:19] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:19] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0002.txt
+[13:47:19] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0002
+[13:47:19] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0003 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:19] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:19] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:19] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0003.txt
+[13:47:19] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0003
+[13:47:19] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0004 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:19] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:19] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:19] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0004.txt
+[13:47:19] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0004
+[13:47:20] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0005 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:20] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:20] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:20] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0005.txt
+[13:47:20] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0005
+[13:47:20] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0006 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:20] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:20] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:20] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0006.txt
+[13:47:20] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0006
+[13:47:20] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0007 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:20] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:20] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:20] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0007.txt
+[13:47:20] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0007
+[13:47:20] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0008 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:20] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:20] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:20] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0008.txt
+[13:47:20] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0008
+[13:47:21] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0009 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:21] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:21] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:21] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0009.txt
+[13:47:21] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0009
+[13:47:21] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0010 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:21] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:21] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:21] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0010.txt
+[13:47:21] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0010
+[13:47:21] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0011 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:21] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:21] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:21] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0011.txt
+[13:47:21] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0011
+[13:47:21] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0012 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:21] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:21] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:21] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0012.txt
+[13:47:22] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0012
+[13:47:22] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0013 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log
+[13:47:22] degrade_one_chunk: module command not found, assuming matlab in PATH
+[13:47:22] degrade_one_chunk: which matlab=/usr/local/bin/matlab
+[13:47:22] degrade_one_chunk: about to run MATLAB, manifest=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/simulation_module_v4/tmp/degrade_args_microns_864691135136385275_0013.txt
+[13:47:22] degrade_one_chunk: invoking MATLAB for microns_864691135136385275_0013
+[13:47:22] degrade_one_chunk: chunk_path=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk/microns_864691135136385275_0014 main_log=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260411_134718/degrade.log

@@ -1,0 +1,8 @@
+DEBUG 2026-04-10 18:19:06 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
+DEBUG 2026-04-10 18:19:06 RUN_ID=20260410_181906 PIPELINE_LOG=logs/pipeline/pipeline_20260410_181906.txt
+DEBUG 2026-04-10 18:19:06 STEP=degrade VOLUME=microns_864691135570956678
+[18:19:06] Resume: 16 chunks remaining
+[18:19:06] Degrade started, run dir: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/logs/degrade/20260410_181906
+[18:19:06] Chunk dir: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/chunk, output: /cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/data/degrade, folders: 16
+/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/degrade.sh: line 116: sbatch: command not found
+DEBUG 2026-04-10 18:19:06 EXIT rc=0

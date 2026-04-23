@@ -1,0 +1,9 @@
+C:/Users/晟/Desktop/临时/tpm_simulator/data/degrade/microns_864691135430623536_0002/neurons_864691135430623536_0002.tiff
+C:/Users/晟/Desktop/临时/tpm_simulator/data/noise/microns_864691135430623536_0002
+500
+50
+0
+0.1
+0.01
+0.01
+0.05
