@@ -1,11 +1,35 @@
-load('og_psf.mat');
+% load('og_psf.mat');
+% og_psf = PSF_struct.psf;
+% load('na_psf.mat');
+% na_psf = PSF_struct.psf;
+%%
+
+load('calc_psf.mat');
 og_psf = PSF_struct.psf;
-load('na_psf.mat');
-na_psf = PSF_struct.psf;
 
 figure()
 
-iis = 8:1:13;
+iis = 20:10:80;
+
+% og_psf = log(og_psf);
+og_psf = rescale(og_psf);
+
+minVal = min(min(og_psf(:)));
+maxVal = max(max(og_psf(:)));
+
+for ii = 1:length(iis)
+    og_slice = squeeze(og_psf(:,iis(ii),:))';
+
+    subplot(1, length(iis), ii);
+    imagesc(og_slice);
+    clim([minVal maxVal]);
+
+end
+
+%%
+figure()
+
+iis = 20:10:80;
 
 % og_psf = log(og_psf);
 % na_psf = log(na_psf);
