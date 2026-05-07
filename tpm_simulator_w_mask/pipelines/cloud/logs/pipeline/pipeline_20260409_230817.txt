@@ -1,6 +1,0 @@
-DEBUG 2026-04-09 23:08:17 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
-DEBUG 2026-04-09 23:08:17 RUN_ID=20260409_230817 PIPELINE_LOG=logs/pipeline/pipeline_20260409_230817.txt
-DEBUG 2026-04-09 23:08:17 STEP=downsample VOLUME=SyntaxError: unterminated f-string literal (detected at line 59)
-/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/downsample.sh: line 9: 21014 Illegal instruction     (core dumped) python -c "import numpy" 2> /dev/null
-/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud/downsample.sh: line 18: 21033 Illegal instruction     (core dumped) python "$DOWNSAMPLE_PY"
-DEBUG 2026-04-09 23:08:18 EXIT rc=0

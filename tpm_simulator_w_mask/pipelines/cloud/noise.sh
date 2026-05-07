@@ -96,7 +96,23 @@ log "Output dir: $OUTPUT_DIR"
 log "Folders to process: ${#FOLDERS[@]}"
 $PARALLEL && log "Parallel: ${NOISE_PARALLEL_JOBS:-$PARALLEL_JOBS} jobs"
 
-command -v module &>/dev/null && module load matlab/R2024a 2>/dev/null || true
+#command -v module &>/dev/null && module load matlab/R2024a 2>/dev/null || true
+if command -v module &>/dev/null; then
+  log "noise: loading matlab module"
+  module load matlab/R2024a 2>>"$DBG_LOG" || true
+else
+  log "noise: module not found, setting MATLAB manually"
+
+  MATLAB_BIN="/cis/local/linux/MATLAB/R2022a/bin/matlab"
+
+  if [ -x "$MATLAB_BIN" ]; then
+    export PATH="$(dirname "$MATLAB_BIN"):$PATH"
+    log "noise: MATLAB added to PATH via $MATLAB_BIN"
+  else
+    echo "ERROR: MATLAB not found at $MATLAB_BIN" >&2
+    exit 1
+  fi
+fi
 
 OK_COUNT=0
 

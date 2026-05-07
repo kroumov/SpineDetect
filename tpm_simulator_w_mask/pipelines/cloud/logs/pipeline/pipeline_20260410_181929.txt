@@ -1,3 +1,0 @@
-DEBUG 2026-04-10 18:19:29 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
-DEBUG 2026-04-10 18:19:29 RUN_ID=20260410_181929 PIPELINE_LOG=logs/pipeline/pipeline_20260410_181929.txt
-DEBUG 2026-04-10 18:19:29 EXIT rc=0

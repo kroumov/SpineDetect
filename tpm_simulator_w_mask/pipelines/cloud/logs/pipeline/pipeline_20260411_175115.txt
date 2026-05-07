@@ -1,8 +1,0 @@
-DEBUG 2026-04-11 17:51:15 START SLURM_JOB_ID= CLOUD_DIR=/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/cloud
-DEBUG 2026-04-11 17:51:15 RUN_ID=20260411_175115 PIPELINE_LOG=logs/pipeline/pipeline_20260411_175115.txt
-DEBUG 2026-04-11 17:51:15 STEP=downsample VOLUME=microns_864691134856455713
-  File "/cis/home/rwang183/my_documents/BDD/SpineDetect-shengwen-branch/SpineDetect/tpm_simulator/pipelines/local/downsample.py", line 255
-    shape_out_masks = (out_vol_masks.shape[3], out_vol_masks.shape[2]), out_vol_masks.shape[0]), out_vol_masks.shape[1]))
-                                                                                              ^
-SyntaxError: unmatched ')'
-DEBUG 2026-04-11 17:51:15 EXIT rc=0

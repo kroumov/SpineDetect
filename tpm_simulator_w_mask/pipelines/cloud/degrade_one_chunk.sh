@@ -31,11 +31,27 @@ echo "$_msg"
 debug "degrade_one_chunk: chunk_path=$chunk_path main_log=$main_log"
 echo "[$(date +%H:%M:%S)] degrade_one_chunk: sourced config, chunk=$(basename "$chunk_path")" >> "$main_log"
 
+#if command -v module &>/dev/null; then
+#  debug "degrade_one_chunk: loading matlab module"
+#  module load matlab/R2024a 2>>"$DBG_LOG" || true
+#else
+#  debug "degrade_one_chunk: module command not found, assuming matlab in PATH"
+#fi
 if command -v module &>/dev/null; then
   debug "degrade_one_chunk: loading matlab module"
   module load matlab/R2024a 2>>"$DBG_LOG" || true
 else
-  debug "degrade_one_chunk: module command not found, assuming matlab in PATH"
+  debug "degrade_one_chunk: module not found, setting MATLAB manually"
+
+  MATLAB_BIN="/cis/local/linux/MATLAB/R2022a/bin/matlab"
+
+  if [ -x "$MATLAB_BIN" ]; then
+    export PATH="$(dirname "$MATLAB_BIN"):$PATH"
+    debug "degrade_one_chunk: MATLAB added to PATH via $MATLAB_BIN"
+  else
+    echo "ERROR: MATLAB not found at $MATLAB_BIN" >&2
+    exit 1
+  fi
 fi
 
 _matlab_path=$(command -v matlab 2>/dev/null || true)

@@ -264,12 +264,12 @@ def mask_generation_pipeline(
 
 if __name__ == "__main__":
     # Example usage
-    root_ids = [864691135645549807]  # Replace with actual root IDs
+    root_ids = [864691135645549807]  # Replace with actual root IDs [864691135995447722, 864691136903982002, 864691135698196757, 864691136451925247, 864691135841778147, 864691136310935130, 864691135995909546, 864691137054525558, 864691135590799371, 864691135698193941, 864691135133519520, 864691135915774822, 864691135856767534]
     client = CAVEclient('minnie65_public')  # Initialize your client here
 
     identifier = root_ids[0]  # Use the first root_id as identifier for output files
-    bbox_min = np.array([1060288.0, 567936.0, 730880.0])  # Replace with actual bounding box min
-    bbox_max = np.array([32.768, 32.768, 81.92]) * 1000 + bbox_min  # Replace with actual bounding box max
+    bbox_min = np.array([1060288.0, 567936.0, 730880.0])  # Replace with actual bounding box min [32768, 32768, 81920]
+    bbox_max = np.array([32.768, 32.768, 81.92]) * 1000 + bbox_min  # Replace with actual bounding box max [991872.0, 485568.0, 597680.0] + [32768, 32768, 81920]
     res_seg = np.array([64.0, 64.0, 80.0])  # Voxel size in nm
 
     mask_generation_pipeline(identifier, root_ids, client, bbox_min, bbox_max, res_seg)
