@@ -11,3 +11,4 @@ To run the pipeline:
 ```
 bash pipelines/cloud/run_pipeline.sh
 ```
+Final output will be available in `data/train`
